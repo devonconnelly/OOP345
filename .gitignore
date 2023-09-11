@@ -278,7 +278,5 @@ Debug/
 =======
 
 *.DS_Store
-
-*.README.md
-*.readme.md
 >>>>>>> 84a9730e61e0715e8f94d767238deb4617aa4902
+*.xcodeproj

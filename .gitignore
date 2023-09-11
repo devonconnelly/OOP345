@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # ignore files with no extenion
 *
 !*.*
@@ -242,6 +243,8 @@ xcuserdata/
 .codelite/
 Debug/
 
+=======
+>>>>>>> 838d2d0478f6e5a16dab4d53beab0eefed32b2b1
 # Prerequisites
 *.d
 
@@ -275,8 +278,11 @@ Debug/
 *.out
 *.app
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 *.DS_Store
 >>>>>>> 84a9730e61e0715e8f94d767238deb4617aa4902
 *.xcodeproj
+=======
+>>>>>>> 838d2d0478f6e5a16dab4d53beab0eefed32b2b1

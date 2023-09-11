@@ -13,8 +13,8 @@ private:
     bool m_discount;
 public:
     RideRequest();
-    void read(std::istream& in);
-    void display();
+    std::istream& read(std::istream& in);
+    void display() const;
 };
 }
 

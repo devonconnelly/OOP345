@@ -14,11 +14,11 @@ RideRequest::RideRequest(){
     m_price = 0;
     m_discount = false;
 }
-void RideRequest::read(std::istream& in) {
+std::istream& RideRequest::read(std::istream& in) {
     if(in) {
         char discount;
-        in.getline(m_name, strlen(m_name), ',');
-        in.getline(m_desc, strlen(m_desc), ',');
+        in.getline(m_name, 10, ',');
+        in.getline(m_desc, 25, ',');
         in >> m_price;
         in.ignore();
         in >> discount;
@@ -32,17 +32,18 @@ void RideRequest::read(std::istream& in) {
             m_discount = false;
         }
     }
+    return in;
 }
-void RideRequest::display() {
+void RideRequest::display() const {
     static int counter = 0;
     counter++;
-    cout << counter << ". ";
-    if(m_name[0] == '\0') {
+    cout << left << setw(2) << counter << ". ";
+    if(m_name[0] != '\0') {
         cout << left << setw(10) << m_name << "|";
         cout << left << setw(25) << m_desc << "|";
-        cout << left << setw(12) << setprecision(2) << m_price + (m_price * g_taxrate) << "|";
+        cout << left << setw(12) << setprecision(2) << fixed << m_price + (m_price * g_taxrate) << "|";
         if(m_discount)
-            cout << right << setw(13) << m_price + (m_price * g_taxrate) - m_discount;
+            cout << right << setw(13) << m_price + (m_price * g_taxrate) - g_discount;
     }
     else {
         cout << "No Ride Request" << endl;

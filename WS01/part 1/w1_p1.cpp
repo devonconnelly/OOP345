@@ -29,11 +29,8 @@ int cout = 0; // won't compile if headers don't follow convention regarding name
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
-<<<<<<< HEAD
+
 int main(int argc, char** argv)
-=======
-???
->>>>>>> 838d2d0478f6e5a16dab4d53beab0eefed32b2b1
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -43,12 +40,8 @@ int main(int argc, char** argv)
 	//   3: third argument
 	//   ...
 	// Don't use "magic numbers": https://en.wikipedia.org/wiki/Magic_number_(programming)
-<<<<<<< HEAD
     for(int i = 0; i < argc; i++)
         std::cout << i + 1 << ". " << argv[i] << std::endl;
-=======
-	???
->>>>>>> 838d2d0478f6e5a16dab4d53beab0eefed32b2b1
 	std::cout << "--------------------------\n\n";
 
 	// Keep a record of the *Home* rides separately

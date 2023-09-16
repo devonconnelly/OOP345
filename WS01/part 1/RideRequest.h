@@ -8,13 +8,16 @@ namespace sdds{
 class RideRequest {
 private:
     char m_name[10];
-    char m_desc[25];
+    char* m_desc;
     double m_price;
     bool m_discount;
 public:
     RideRequest();
+    RideRequest(const RideRequest& other);
+    RideRequest& operator=(const RideRequest& other);
     std::istream& read(std::istream& in);
     void display() const;
+    ~RideRequest();
 };
 }
 

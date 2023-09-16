@@ -24,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A5A286A2AB4B3FC0088B9C1 /* rides4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rides4.txt; path = "../part 2/rides4.txt"; sourceTree = "<group>"; };
+		4A5A286B2AB4B3FC0088B9C1 /* sample_output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_output.txt; path = "../part 2/sample_output.txt"; sourceTree = "<group>"; };
 		4A7C72102AACB2BD003A5FA6 /* w1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = w1; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7C721A2AACB2D8003A5FA6 /* rides2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rides2.txt; sourceTree = "<group>"; };
 		4A7C721B2AACB2D8003A5FA6 /* w1_p1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = w1_p1.cpp; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		4A7C72072AACB2BD003A5FA6 = {
 			isa = PBXGroup;
 			children = (
+				4A5A286A2AB4B3FC0088B9C1 /* rides4.txt */,
+				4A5A286B2AB4B3FC0088B9C1 /* sample_output.txt */,
 				4A7C721E2AACB2D9003A5FA6 /* rides1.txt */,
 				4A7C721A2AACB2D8003A5FA6 /* rides2.txt */,
 				4A7C721C2AACB2D9003A5FA6 /* sample_output.txt */,

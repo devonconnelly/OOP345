@@ -27,7 +27,7 @@ RideRequest& RideRequest::operator=(const RideRequest& other){
         m_price = other.m_price;
         m_discount = other.m_discount;
         m_desc = new char[strlen(other.m_desc) + 1];
-        for(int i = 0; i < strlen(other.m_desc); i++){
+        for(size_t i = 0; i < strlen(other.m_desc); i++){
             m_desc[i] = other.m_desc[i];
         }
     }
@@ -41,7 +41,7 @@ std::istream& RideRequest::read(std::istream& in) {
         in.getline(desc, 100, ',');
         delete[] m_desc;
         m_desc = new char[strlen(desc) + 1];
-        for (int i = 0; i < strlen(desc); i++){
+        for (size_t i = 0; i < strlen(desc); i++){
             m_desc[i] = desc[i];
         }
         m_desc[strlen(desc)] = '\0';

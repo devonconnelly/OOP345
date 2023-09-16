@@ -1,0 +1,10 @@
+Devon Connelly
+105322218
+dconnelly@myseneca.ca
+Sep. 15 2023
+
+1. External linkage allows data to be accessed across the whole program ( across different source files ) and we utilized this for the taxrate and the discount for our workshop since it had to be accessible by both the riderequest module and the main function since we utilize it to find the price with tax, but it was required to change value on 'day 2' through the main function. Internal linkage only allows data to be visible within its scope ( source file ) and we used this for the counter in the display function since we wanted to keep track of the amount of rides throughout all the the data and different files.
+
+2. Static variables are associated with multiple instances rather than local to just one. In our program we used it to count the number of rides, so everytime the display function was called the counter wouldn't be re initialzied to 0 rather it would maintain whatever it previously hadregardless of how many times the display function was called and regardless of whichever instance of the RideRequest class called it.
+
+3. Had to change how the ride despcription attribute to be able to hold c strings. This required to change how the ride description stored its data, from static memory to dynamically allocated memory since we wouldn't know how much space is needed at compile time. This required allocating memory for the description when needed and deallocating memory for it when finished. I also implemented the rule of three, which consisted of a copy constructor, a copy assignment operator and a destructor. The copy constructor simply called the assignment operator where the object would be copied from the source object into the new object, shallow copy and deep copy. And finally the destructor where I had deallocate the memory previously allocated for the description. Changing from static memory to dynamic memory brought up some bugs in my code revolving around memory leaks where I had some troubles making sure the memory was allocated when it was needed to be and deallocated when it was no longer needed and before the program ended.

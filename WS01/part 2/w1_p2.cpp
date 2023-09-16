@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Sep. 15 2023
 // Workshop 1 - Linkage, Storage Duration, Namespaces, and OS Interface
 // Hina Tariq - 2023/03/06
 // Cornel - 2023/09/08
@@ -29,7 +33,8 @@ int cout = 0; // won't compile if headers don't follow convention regarding name
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
-???
+
+int main(int argc, char** argv)
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -39,7 +44,9 @@ int cout = 0; // won't compile if headers don't follow convention regarding name
 	//   3: third argument
 	//   ...
 	// Don't use "magic numbers": https://en.wikipedia.org/wiki/Magic_number_(programming)
-	???
+    for(int i = 0; i < argc; i++){
+        std::cout << "  " << i + 1 << ": " << argv[i] << std::endl;
+    }
 	std::cout << "--------------------------\n\n";
 
 	// Keep a record of the *Home* rides separately
@@ -113,3 +120,4 @@ int cout = 0; // won't compile if headers don't follow convention regarding name
 
 	return cout;
 }
+

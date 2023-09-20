@@ -14,6 +14,7 @@ public:
     void display() const;
     Airport& operator=(const Airport& airport);
     Airport();
+    Airport(const Airport& airport);
     Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude);
     char* getCountry() const;
     char* getState() const;

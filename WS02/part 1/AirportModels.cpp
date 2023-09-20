@@ -75,11 +75,11 @@ AirportLog::AirportLog(const char* filename) {
         file.open(filename);
         
         m_airports = new Airport[m_size];
-        char code[25]{};
-        char name[50]{};
-        char city[20]{};
-        char state[20]{};
-        char country[20]{};
+        char code[100]{};
+        char name[100]{};
+        char city[100]{};
+        char state[100]{};
+        char country[100]{};
         float latitude{};
         float longitude{};
         
@@ -123,19 +123,16 @@ Airport& Airport::set(const char* code, const char* name, const char* city, cons
 }
 void copy(char*& a, const char* b)
 {
+    if(a != nullptr) {
+        delete a;
+    }
     if (b != nullptr) {
-        int size = static_cast<int>(strlen(b));
+        int size = (int)(strlen(b));
         a = new char[size + 1];
         for (int i = 0; i < size; i++) {
             a[i] = b[i];
         }
         a[size] = '\0';
-    } else {
-        if(a != nullptr)
-        {
-            delete[] a;
-            a = nullptr;
-        }
     }
 }
 

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<iomanip>
 #include<fstream>
-#include<string>
+#include<cstring>
 #include "AirportModels.h"
 using namespace std;
 namespace sdds {

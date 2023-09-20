@@ -190,7 +190,11 @@ AirportLog::operator size_t() const {
 }
 
 Airport::~Airport() {
-  
+    delete[] m_code;
+    delete[] m_name;
+    delete[] m_city;
+    delete[] m_state;
+    delete[] m_country;
 }
 
 AirportLog::~AirportLog() {

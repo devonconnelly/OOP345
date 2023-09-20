@@ -113,16 +113,21 @@ Airport& Airport::set(const char* code, const char* name, const char* city, cons
 }
 void copy(char*& a, const char* b)
 {
-    if(a != nullptr)
-    {
-        delete[]a;
+    if (b != nullptr) {
+        int size = static_cast<int>(strlen(b));
+        a = new char[size + 1];
+        for (int i = 0; i < size; i++) {
+            a[i] = b[i];
+        }
+        a[size] = '\0';
+    } else {
+        a = nullptr;
     }
-    int size = (int)(strlen(b));
-    a = new char[size + 1];
-    for(int i = 0; i < size; i++)
-    {
-        a[i] = b[i];
-    }
+}
+
+
+Airport::Airport(const Airport& airport) {
+    *this = airport;
 }
 Airport& Airport::operator=(const Airport& airport)
 {
@@ -185,14 +190,11 @@ AirportLog::operator size_t() const {
 }
 
 Airport::~Airport() {
-    delete[] m_code;
-    delete[] m_name;
-    delete[] m_city;
-    delete[] m_state;
-    delete[] m_country;
+  
 }
 
 AirportLog::~AirportLog() {
     delete[] m_airports;
+    m_airports = nullptr;
 }
 }

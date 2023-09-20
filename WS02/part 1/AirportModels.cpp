@@ -57,46 +57,49 @@ AirportLog::AirportLog() {
 AirportLog::AirportLog(const char* filename) {
     ifstream file;
     file.open(filename);
-    int count = 0;
-    char ch = '0';
-    if(file.is_open()){
-        while(file.get(ch)) {
-            if(ch == '\n') {
-                count++;
+    if(file.is_open())
+    {
+        int count = 0;
+        char ch = '0';
+        if(file.is_open()){
+            while(file.get(ch)) {
+                if(ch == '\n') {
+                    count++;
+                }
             }
         }
-    }
-    --count;
-    m_size = count;
-    file.close();
-    
-    file.open(filename);
-    
-    m_airports = new Airport[m_size];
-    char code[25]{};
-    char name[50]{};
-    char city[20]{};
-    char state[20]{};
-    char country[20]{};
-    float latitude{};
-    float longitude{};
-    
-    while(file.get(ch)) {
-        if(ch == '\n') {
-            break;
+        --count;
+        m_size = count;
+        file.close();
+        
+        file.open(filename);
+        
+        m_airports = new Airport[m_size];
+        char code[25]{};
+        char name[50]{};
+        char city[20]{};
+        char state[20]{};
+        char country[20]{};
+        float latitude{};
+        float longitude{};
+        
+        while(file.get(ch)) {
+            if(ch == '\n') {
+                break;
+            }
         }
-    }
-    for(size_t i = 0; i < m_size; i++) {
-        file.getline(code, 100, ',');
-        file.getline(name, 100, ',');
-        file.getline(city, 100, ',');
-        file.getline(state, 100, ',');
-        file.getline(country, 100, ',');
-        file >> latitude;
-        file.ignore();
-        file >> longitude;
-        file.ignore();
-        m_airports[i].set(code, name, city, state, country, latitude, longitude);
+        for(size_t i = 0; i < m_size; i++) {
+            file.getline(code, 100, ',');
+            file.getline(name, 100, ',');
+            file.getline(city, 100, ',');
+            file.getline(state, 100, ',');
+            file.getline(country, 100, ',');
+            file >> latitude;
+            file.ignore();
+            file >> longitude;
+            file.ignore();
+            m_airports[i].set(code, name, city, state, country, latitude, longitude);
+        }
     }
     
 }

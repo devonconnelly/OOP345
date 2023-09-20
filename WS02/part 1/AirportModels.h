@@ -18,6 +18,7 @@ public:
     char* getCountry() const;
     char* getState() const;
     Airport& set(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude);
+    ~Airport();
 };
 
 std::ostream& operator<<(std::ostream& ostr, const Airport& airport);
@@ -33,6 +34,7 @@ public:
     AirportLog findAirport(const char* state, const char* country);
     Airport operator[](size_t index) const;
     operator size_t() const;
+    ~AirportLog();
 };
 }
 

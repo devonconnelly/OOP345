@@ -8,7 +8,7 @@ namespace sdds {
 
 
 Airport::Airport() {
-
+    
 }
 
 Airport::Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude) {
@@ -19,7 +19,7 @@ Airport::Airport(const char* code, const char* name, const char* city, const cha
     copy(m_country, country);
     m_latitude = latitude;
     m_longitude = longitude;
-
+    
 }
 
 ostream& operator<<(ostream& ostr, const Airport& airport)
@@ -44,7 +44,7 @@ void Airport::display() const
 }
 
 AirportLog::AirportLog() {
-
+    
 }
 
 AirportLog::AirportLog(const char* filename) {
@@ -170,7 +170,7 @@ AirportLog AirportLog::findAirport(const char* state, const char* country) {
 Airport AirportLog::operator[](size_t index) const {
     
     bool flag = true;
-    Airport emptyOne;
+    Airport empty;
     
     if (index < 0 || index >= m_size)
     {
@@ -178,10 +178,21 @@ Airport AirportLog::operator[](size_t index) const {
     }
     
     
-    return flag ? m_airports[index] : emptyOne;
+    return flag ? m_airports[index] : empty;
 }
 AirportLog::operator size_t() const {
     return m_size;
 }
 
+Airport::~Airport() {
+    delete[] m_code;
+    delete[] m_name;
+    delete[] m_city;
+    delete[] m_state;
+    delete[] m_country;
+}
+
+AirportLog::~AirportLog() {
+    delete[] m_airports;
+}
 }

@@ -7,9 +7,16 @@ using namespace std;
 namespace sdds {
 
 
-Airport::Airport() {
-    
+Airport::Airport() :
+    m_code(nullptr),
+    m_name(nullptr),
+    m_city(nullptr),
+    m_state(nullptr),
+    m_country(nullptr),
+    m_latitude(0.0),
+    m_longitude(0.0) {
 }
+
 
 Airport::Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude) {
     copy(m_code, code);
@@ -121,7 +128,11 @@ void copy(char*& a, const char* b)
         }
         a[size] = '\0';
     } else {
-        a = nullptr;
+        if(a != nullptr)
+        {
+            delete[] a;
+            a = nullptr;
+        }
     }
 }
 

@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Sep. 20 2023
 #ifndef SDDS_AIRPORTMODELS_H
 #define SDDS_AIRPORTMODELS_H
 namespace sdds {

@@ -2,6 +2,7 @@
 #include<iomanip>
 #include<fstream>
 #include<cstring>
+#include <cmath>
 #include "AirportModels.h"
 using namespace std;
 namespace sdds {
@@ -44,7 +45,7 @@ void Airport::display() const
         cout << right << setw(20) << setfill('.') << "State" << setw(3) << " : " << left <<setw(30) << setfill('.') <<  m_state << endl;
         cout << right << setw(20) << setfill('.') << "Country" << setw(3) << " : " << left << setw(30) << setfill('.') << m_country << endl;
         cout << right << setw(20) << setfill('.') << "Latitude" << setw(3) << " : " << left << setw(30) << setfill('.') << m_latitude << endl;
-        cout << right << setw(20) << setfill('.') << "Longitude" << setw(3) << " : " << left << setw(30) << setfill('.') << m_longitude << endl;
+        cout << right << setw(20) << setfill('.') << "Longitude" << setw(3) << " : " << left << setw(30) << setfill('.') << round(m_longitude*10000.0)/ 10000.0 << endl;
     } else {
         cout << "Empty Airport";
     }
@@ -107,8 +108,16 @@ AirportLog::AirportLog(const char* filename) {
 AirportLog::AirportLog(const AirportLog& log) {
     *this = log;
 }
-AirportLog::AirportLog(const AirportLog&& log) {
-    *this = std::move(log);
+AirportLog::AirportLog(AirportLog&& log) {
+    if(this != &log) {
+        delete[] m_airports;
+        
+        m_size = log.m_size;
+        
+        m_airports = log.m_airports;
+        log.m_size = 0;
+        log.m_airports = nullptr;
+    }
 }
 AirportLog& AirportLog::operator=(const AirportLog& log) {
     if(this != &log) {

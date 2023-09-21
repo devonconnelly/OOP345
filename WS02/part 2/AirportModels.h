@@ -31,7 +31,7 @@ class AirportLog {
 public:
     AirportLog();
     AirportLog(const AirportLog& log);
-    AirportLog(const AirportLog&& log);
+    AirportLog(AirportLog&& log);
     AirportLog& operator=(const AirportLog& log);
     AirportLog& operator=(AirportLog&& log);
     AirportLog(const char* filename);

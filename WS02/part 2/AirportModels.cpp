@@ -23,7 +23,7 @@ Airport::Airport() :
 }
 
 
-Airport::Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude) {
+Airport::Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const double latitude, const double longitude) {
     copy(m_code, code);
     copy(m_name, name);
     copy(m_city, city);
@@ -49,13 +49,7 @@ void Airport::display() const
         cout << right << setw(20) << setfill('.') << "State" << setw(3) << " : " << left <<setw(30) << setfill('.') <<  m_state << endl;
         cout << right << setw(20) << setfill('.') << "Country" << setw(3) << " : " << left << setw(30) << setfill('.') << m_country << endl;
         cout << right << setw(20) << setfill('.') << "Latitude" << setw(3) << " : " << left << setw(30) << setfill('.') << m_latitude << endl;
-        cout << right << setw(20) << setfill('.') << "Longitude" << setw(3) << " : " << left << setw(30) << setfill('.');
-        if(strcmp(m_code, "BHM") == 0) {
-            cout << m_longitude - 0.0001;
-        } else {
-            cout << m_longitude;
-        }
-        cout << endl;
+        cout << right << setw(20) << setfill('.') << "Longitude" << setw(3) << " : " << left << setw(30) << setfill('.') << m_longitude << endl;
     } else {
         cout << "Empty Airport";
     }
@@ -91,8 +85,8 @@ AirportLog::AirportLog(const char* filename) {
         char city[100]{};
         char state[100]{};
         char country[100]{};
-        float latitude{};
-        float longitude{};
+        double latitude{};
+        double longitude{};
         
         while(file.get(ch)) {
             if(ch == '\n') {
@@ -162,7 +156,7 @@ char* Airport::getState() const {
     return m_state;
 }
 
-Airport& Airport::set(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude) {
+Airport& Airport::set(const char* code, const char* name, const char* city, const char* state, const char* country, const double latitude, const double longitude) {
     copy(m_code, code);
     copy(m_name, name);
     copy(m_city, city);

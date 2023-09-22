@@ -11,18 +11,18 @@ class Airport {
     char* m_city = nullptr;
     char* m_state = nullptr;
     char* m_country = nullptr;
-    float m_latitude{};
-    float m_longitude{};
+    double m_latitude{};
+    double m_longitude{};
     
 public:
     void display() const;
     Airport& operator=(const Airport& airport);
     Airport();
     Airport(const Airport& airport);
-    Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude);
+    Airport(const char* code, const char* name, const char* city, const char* state, const char* country, const double latitude, const double longitude);
     char* getCountry() const;
     char* getState() const;
-    Airport& set(const char* code, const char* name, const char* city, const char* state, const char* country, const float latitude, const float longitude);
+    Airport& set(const char* code, const char* name, const char* city, const char* state, const char* country, const double latitude, const double longitude);
     ~Airport();
 };
 

@@ -61,13 +61,34 @@ public:
         Book m_largestItem = {"", 10000, 1};
         unsigned m_size = 0;
     protected:
-        void setSmallestItem(const Book& smallest);
-        void setLargestItem(const Book& largest);
+        void setSmallestItem(const sdds::Book &smallest) {
+            if(smallest < m_smallestItem) {
+                m_smallestItem = smallest;
+            }
+        }
+
+        void setLargestItem(const sdds::Book &largest) {
+            if(largest > m_largestItem) {
+                m_largestItem = largest;
+            }
+        }
     public:
-        Book& getSmallestItem();
-        Book& getLargestItem();
-        unsigned size() const;
-        unsigned capacity() const;
+        Book& getSmallestItem() {
+            return m_smallestItem;
+        }
+
+        Book& getLargestItem() {
+            return m_largestItem;
+        }
+
+        unsigned size() const {
+            return m_size;
+        }
+
+        unsigned capacity() const {
+            return 10;
+        }
+
     };
     
     template <typename T, unsigned C>

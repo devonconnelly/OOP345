@@ -25,7 +25,7 @@ Book& Collection<Book, 10>::getLargestItem() {
 }
 
 unsigned int Collection<Book, 10>::size() const {
-    return sizeof(*m_items) / sizeof(Book);;
+    return m_size;
 }
 
 unsigned int Collection<Book, 10>::capacity() const {

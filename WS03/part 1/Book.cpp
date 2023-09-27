@@ -30,6 +30,9 @@ std::ostream& Book::print(std::ostream& os) const {
                      << "(" << (double)m_numPages / (double)m_numChapters << left << setw(5) << ")";
         os  << fixed << defaultfloat;
     }
+    else {
+        os << "| Invalid book data";
+    }
     return os;
 }
 

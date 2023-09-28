@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Sep. 28 2023
 #include <iostream>
 #include <iomanip>
 #include "Book.h"

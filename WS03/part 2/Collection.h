@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Sep. 28 2023
 #ifndef SDDS_COLLECTION_H
 #define SDDS_COLLECTION_H
 #include "Book.h"

@@ -42,6 +42,7 @@ Cheese::Cheese(const std::string& str) {
             m_features[i] = ' ';
         }
     }
+    m_features += ' ';
 }
 Cheese Cheese::slice(size_t weight) {
     Cheese cheese;

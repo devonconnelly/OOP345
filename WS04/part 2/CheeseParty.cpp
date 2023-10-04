@@ -7,6 +7,9 @@ CheeseParty::CheeseParty() {
     m_pCheeses = nullptr;
     m_size = 0;
 }
+CheeseParty::~CheeseParty() {
+    delete[] m_pCheeses;
+}
 CheeseParty& CheeseParty::addCheese(const sdds::Cheese& cheese) {
     bool flag = true;
     for(size_t i = 0; i < m_size; i++) {

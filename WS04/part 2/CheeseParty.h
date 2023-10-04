@@ -9,6 +9,7 @@ class CheeseParty {
     size_t m_size = 0;
 public:
     CheeseParty();
+    ~CheeseParty();
     CheeseParty& addCheese(const Cheese& cheese);
     CheeseParty& removeCheese();
    CheeseParty(const CheeseParty& source);

@@ -15,11 +15,12 @@ CheeseShop::CheeseShop(const std::string& name) {
     m_name = name;
 }
 CheeseShop& CheeseShop::addCheese(const sdds::Cheese& cheese) {
+    const Cheese* newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
     for(size_t i = 0; i < m_size; i++) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
-    tmpCheeseArray[m_size++] = &cheese;
+    tmpCheeseArray[m_size++] = newCheese;
     delete[] m_pCheeses;
     m_pCheeses = tmpCheeseArray;
     return *this;
@@ -37,7 +38,7 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
+            m_pCheeses[i] = source.m_pCheeses[i];
         }
     }
     return *this;

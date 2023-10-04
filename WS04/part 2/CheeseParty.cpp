@@ -32,7 +32,6 @@ CheeseParty& CheeseParty::addCheese(const sdds::Cheese& cheese) {
 CheeseParty& CheeseParty::removeCheese() {
     for(size_t i = 0; i < m_size; i++) {
         if(m_pCheeses[i]->getWeight() == 0.0) {
-            delete[] m_pCheeses[i];
             m_pCheeses[i] = nullptr;
         }
     }
@@ -50,7 +49,7 @@ CheeseParty& CheeseParty::operator=(const CheeseParty& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = source.m_pCheeses[i];
+            m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
         }
     }
     return *this;

@@ -21,10 +21,13 @@ CheeseShop& CheeseShop::addCheese(const sdds::Cheese& cheese) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
     tmpCheeseArray[m_size++] = newCheese;
+    delete newCheese;
     delete[] m_pCheeses;
+    
     m_pCheeses = tmpCheeseArray;
     return *this;
 }
+
 CheeseShop::CheeseShop(const CheeseShop& source) {
     *this = source;
 }

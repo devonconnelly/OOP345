@@ -29,6 +29,7 @@ CheeseParty& CheeseParty::addCheese(const sdds::Cheese& cheese) {
     return *this;
 }
 
+
 CheeseParty& CheeseParty::removeCheese() {
     for(size_t i = 0; i < m_size; i++) {
         if(m_pCheeses[i]->getWeight() == 0.0) {

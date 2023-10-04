@@ -46,6 +46,7 @@ CheeseParty::CheeseParty(CheeseParty&& source) {
 CheeseParty& CheeseParty::operator=(const CheeseParty& source) {
     if(this != &source) {
         m_size = source.m_size;
+        delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
             m_pCheeses[i] = source.m_pCheeses[i];

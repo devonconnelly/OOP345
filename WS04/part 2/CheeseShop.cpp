@@ -15,6 +15,7 @@ CheeseShop::CheeseShop() {
 CheeseShop::~CheeseShop() {
     delete[] m_pCheeses;
     delete m_newCheese;
+    delete[] m_rmCheese;
 }
 CheeseShop::CheeseShop(const std::string& name) {
     m_name = name;
@@ -63,6 +64,7 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
 }
 CheeseShop& CheeseShop::operator=(CheeseShop&& source) {
     if(this != &source) {
+        delete[] m_pCheeses;
         m_name = source.m_name;
         m_size = source.m_size;
         m_pCheeses = source.m_pCheeses;

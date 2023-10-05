@@ -5,6 +5,7 @@ using namespace std;
 namespace sdds {
 CheeseShop::CheeseShop() {
     m_pCheeses = nullptr;
+    m_newCheese = nullptr;
     m_size = 0;
     m_name = "";
 }
@@ -37,6 +38,7 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
     if(this != &source) {
         m_name = source.m_name;
         m_size = source.m_size;
+        delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
             m_pCheeses[i] = source.m_pCheeses[i];

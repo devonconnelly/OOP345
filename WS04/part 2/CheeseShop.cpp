@@ -9,6 +9,9 @@ CheeseShop::CheeseShop() {
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
+    for(size_t i = 0; i < m_size; i++) {
+        delete m_pCheeses[i];
+    }
     delete[] m_pCheeses;
     delete m_newCheese;
 }

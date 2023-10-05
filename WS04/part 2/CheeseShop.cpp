@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 5 2023
 #include <iostream>
 #include <iomanip>
 #include "CheeseShop.h"
@@ -18,6 +22,7 @@ CheeseShop::CheeseShop(const std::string& name) {
 CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
     m_newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
+    addCheeseRm(*m_newCheese);
     for(size_t i = 0; i < m_size; i++) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
@@ -26,6 +31,17 @@ CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
     m_pCheeses = tmpCheeseArray;
     return *this;
 }
+
+void CheeseShop::addCheeseRm(const Cheese& cheese) {
+    const Cheese** tmpCheeseArray = new const Cheese*[m_rmSize + 1];
+    for (size_t i = 0; i < m_size; i++){
+        tmpCheeseArray[i] = m_rmCheese[i];
+    }
+    tmpCheeseArray[m_rmSize++] = &cheese;
+    delete[] m_rmCheese;
+    m_rmCheese = tmpCheeseArray;
+}
+
 
 CheeseShop::CheeseShop(const CheeseShop& source) {
     *this = source;

@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 5 2023
 #include <iostream>
 #include <iomanip>
 #include "CheeseParty.h"
@@ -57,6 +61,7 @@ CheeseParty& CheeseParty::operator=(const CheeseParty& source) {
 }
 CheeseParty&CheeseParty::operator=(CheeseParty&& source) {
     if(this != &source) {
+        delete[] m_pCheeses;
         m_size = source.m_size;
         m_pCheeses = source.m_pCheeses;
         source.m_pCheeses = nullptr;

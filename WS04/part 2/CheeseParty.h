@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 5 2023
 #ifndef SDDS_CHEESEPARTY_H
 #define SDDS_CHEESEPARTY_H
 #include <iostream>

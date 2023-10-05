@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 5 2023
 #include "Cheese.h"
 #include <iostream>
 #include <string>

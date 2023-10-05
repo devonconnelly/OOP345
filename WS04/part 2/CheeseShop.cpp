@@ -19,7 +19,7 @@ CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
     m_newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
     for(size_t i = 0; i < m_size; i++) {
-        tmpCheeseArray[i] = new Cheese(*(m_pCheeses[i]));
+        tmpCheeseArray[i] = m_pCheeses[i];
     }
     tmpCheeseArray[m_size++] = m_newCheese;
     delete[] m_pCheeses;
@@ -40,7 +40,7 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = new Cheese(*(source.m_pCheeses[i]));
+            m_pCheeses[i] = source.m_pCheeses[i];
         }
     }
     return *this;

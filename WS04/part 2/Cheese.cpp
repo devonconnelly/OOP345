@@ -70,9 +70,6 @@ std::string removeSpaces(std::string& str) {
     str.erase(str.find_last_not_of(" ") + 1);
     return str;
 }
-bool Cheese::operator==(const Cheese& rOp) const{
-    return(m_name == rOp.m_name);
-}
 std::ostream& operator<<(std::ostream& os, const Cheese cheese) {
     os << "|" << left << setw(21) << cheese.getName() << "|" << setw(5) << cheese.getWeight() << "|" << setw(5) << setprecision(2) << fixed << cheese.getPrice() << "|" << right << setw(34) << cheese.getFeatures() << "|" << endl;
     return os;

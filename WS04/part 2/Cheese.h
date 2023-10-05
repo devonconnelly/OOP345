@@ -15,7 +15,6 @@ public:
     size_t getWeight() const;
     double getPrice() const;
     std::string getFeatures() const;
-    bool operator==(const Cheese& rOp) const;
 };
 std::string removeSpaces(std::string& str);
 std::ostream& operator<<(std::ostream& os, const Cheese cheese);

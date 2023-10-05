@@ -5,24 +5,22 @@ using namespace std;
 namespace sdds {
 CheeseShop::CheeseShop() {
     m_pCheeses = nullptr;
-    m_newCheese = nullptr;
     m_size = 0;
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
     delete[] m_pCheeses;
-    delete m_newCheese;
 }
 CheeseShop::CheeseShop(const std::string& name) {
     m_name = name;
 }
 CheeseShop& CheeseShop::addCheese(const sdds::Cheese& cheese) {
-    m_newCheese = new const Cheese(cheese);
+    const Cheese* newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
     for(size_t i = 0; i < m_size; i++) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
-    tmpCheeseArray[m_size++] = m_newCheese;
+    tmpCheeseArray[m_size++] = newCheese;
     delete[] m_pCheeses;
     m_pCheeses = tmpCheeseArray;
     return *this;

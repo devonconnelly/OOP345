@@ -60,7 +60,12 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
+            if (source.m_pCheeses[i]) {
+                m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
+            }
+            else {
+                    m_pCheeses[i] = nullptr;
+            }
         }
     }
     return *this;

@@ -10,17 +10,17 @@ CheeseParty::CheeseParty() {
 CheeseParty::~CheeseParty() {
     delete[] m_pCheeses;
 }
-CheeseParty& CheeseParty::addCheese(const sdds::Cheese& cheese) {
+CheeseParty& CheeseParty::addCheese(const Cheese& cheese) {
     bool flag = true;
     for(size_t i = 0; i < m_size; i++) {
-        if(m_pCheeses[i] == &cheese) {
+        if(*m_pCheeses[i] == cheese) {
             flag = false;
         }
     }
     if(flag) {
         const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
         for(size_t i = 0; i < m_size; i++) {
-            tmpCheeseArray[i] = m_pCheeses[i];
+            tmpCheeseArray[i] = new Cheese(*(m_pCheeses[i]));
         }
         tmpCheeseArray[m_size++] = &cheese;
         delete[] m_pCheeses;
@@ -50,7 +50,7 @@ CheeseParty& CheeseParty::operator=(const CheeseParty& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = source.m_pCheeses[i];
+            m_pCheeses[i] = new Cheese(*(source.m_pCheeses[i]));
         }
     }
     return *this;

@@ -13,6 +13,7 @@ CheeseShop::CheeseShop() {
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
+
     delete[] m_pCheeses;
     for (size_t i = 0; i < m_rmSize; i++){
         delete m_rmCheese[i];
@@ -59,7 +60,7 @@ CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
         delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            m_pCheeses[i] = source.m_pCheeses[i];
+            m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
         }
     }
     return *this;

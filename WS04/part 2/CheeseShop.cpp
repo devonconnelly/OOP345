@@ -14,7 +14,9 @@ CheeseShop::CheeseShop() {
 }
 CheeseShop::~CheeseShop() {
     delete[] m_pCheeses;
-    delete m_newCheese;
+    for (size_t i = 0; i < m_rmSize; i++){
+        delete m_rmCheese[i];
+    }
     delete[] m_rmCheese;
 }
 CheeseShop::CheeseShop(const std::string& name) {

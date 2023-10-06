@@ -13,12 +13,11 @@ CheeseShop::CheeseShop() {
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
-
     delete[] m_pCheeses;
-    for (size_t i = 0; i < m_rmSize; i++){
-        delete m_rmCheese[i];
-    }
-    delete[] m_rmCheese;
+//    for (size_t i = 0; i < m_rmSize; i++){
+//        delete m_rmCheese[i];
+//    }
+//    delete[] m_rmCheese;
 }
 CheeseShop::CheeseShop(const std::string& name) {
     m_name = name;
@@ -26,7 +25,7 @@ CheeseShop::CheeseShop(const std::string& name) {
 CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
     m_newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
-    addCheeseRm(*m_newCheese);
+//    addCheeseRm(*m_newCheese);
     for(size_t i = 0; i < m_size; i++) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
@@ -36,15 +35,15 @@ CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
     return *this;
 }
 
-void CheeseShop::addCheeseRm(const Cheese& cheese) {
-    const Cheese** tmpCheeseArray = new const Cheese*[m_rmSize + 1];
-    for (size_t i = 0; i < m_size; i++){
-        tmpCheeseArray[i] = m_rmCheese[i];
-    }
-    tmpCheeseArray[m_rmSize++] = &cheese;
-    delete[] m_rmCheese;
-    m_rmCheese = tmpCheeseArray;
-}
+//void CheeseShop::addCheeseRm(const Cheese& cheese) {
+//    const Cheese** tmpCheeseArray = new const Cheese*[m_rmSize + 1];
+//    for (size_t i = 0; i < m_size; i++){
+//        tmpCheeseArray[i] = m_rmCheese[i];
+//    }
+//    tmpCheeseArray[m_rmSize++] = &cheese;
+//    delete[] m_rmCheese;
+//    m_rmCheese = tmpCheeseArray;
+//}
 
 
 CheeseShop::CheeseShop(const CheeseShop& source) {
@@ -55,19 +54,17 @@ CheeseShop::CheeseShop(CheeseShop&& source) {
 }
 CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
     if(this != &source) {
+        for(size_t i = 0; i < m_size; i++) {
+            delete m_pCheeses[i];
+        }
+        delete[] m_pCheeses;
         m_name = source.m_name;
         m_size = source.m_size;
-        delete[] m_pCheeses;
         m_pCheeses = new const Cheese*[m_size];
         for(size_t i = 0; i < m_size; i++) {
-            if (source.m_pCheeses[i]) {
-                m_pCheeses[i] = new Cheese(*source.m_pCheeses[i]);
-            }
-            else {
-                    m_pCheeses[i] = nullptr;
+                m_pCheeses[i] = new const Cheese(*(source.m_pCheeses[i]));
             }
         }
-    }
     return *this;
 }
 CheeseShop& CheeseShop::operator=(CheeseShop&& source) {

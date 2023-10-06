@@ -13,6 +13,7 @@ CheeseShop::CheeseShop() {
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
+
     delete[] m_pCheeses;
 }
 CheeseShop::CheeseShop(const std::string& name) {
@@ -30,9 +31,15 @@ CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
 }
 
 CheeseShop::CheeseShop(const CheeseShop& source) {
+    for(size_t i = 0; i < m_size; i++) {
+        m_pCheeses[i] = nullptr;
+    }
     *this = source;
 }
 CheeseShop::CheeseShop(CheeseShop&& source) {
+    for(size_t i = 0; i < m_size; i++) {
+        m_pCheeses[i] = nullptr;
+    }
     *this = std::move(source);
 }
 CheeseShop& CheeseShop::operator=(const CheeseShop& source) {

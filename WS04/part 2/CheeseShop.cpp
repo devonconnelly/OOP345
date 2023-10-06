@@ -14,37 +14,20 @@ CheeseShop::CheeseShop() {
 }
 CheeseShop::~CheeseShop() {
     delete[] m_pCheeses;
-//    for (size_t i = 0; i < m_rmSize; i++){
-//        delete m_rmCheese[i];
-//    }
-//    delete[] m_rmCheese;
 }
 CheeseShop::CheeseShop(const std::string& name) {
     m_name = name;
 }
 CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
-    m_newCheese = new const Cheese(cheese);
     const Cheese** tmpCheeseArray = new const Cheese*[m_size + 1];
-//    addCheeseRm(*m_newCheese);
     for(size_t i = 0; i < m_size; i++) {
         tmpCheeseArray[i] = m_pCheeses[i];
     }
-    tmpCheeseArray[m_size++] = m_newCheese;
+    tmpCheeseArray[m_size++] = new const Cheese(cheese);;
     delete[] m_pCheeses;
     m_pCheeses = tmpCheeseArray;
     return *this;
 }
-
-//void CheeseShop::addCheeseRm(const Cheese& cheese) {
-//    const Cheese** tmpCheeseArray = new const Cheese*[m_rmSize + 1];
-//    for (size_t i = 0; i < m_size; i++){
-//        tmpCheeseArray[i] = m_rmCheese[i];
-//    }
-//    tmpCheeseArray[m_rmSize++] = &cheese;
-//    delete[] m_rmCheese;
-//    m_rmCheese = tmpCheeseArray;
-//}
-
 
 CheeseShop::CheeseShop(const CheeseShop& source) {
     *this = source;

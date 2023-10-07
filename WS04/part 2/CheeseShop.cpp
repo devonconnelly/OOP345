@@ -13,7 +13,9 @@ CheeseShop::CheeseShop() {
     m_name = "";
 }
 CheeseShop::~CheeseShop() {
-
+    for(size_t i = 0; i < m_size; i++) {
+        delete m_pCheeses[i];
+    }
     delete[] m_pCheeses;
 }
 CheeseShop::CheeseShop(const std::string& name) {
@@ -31,15 +33,9 @@ CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
 }
 
 CheeseShop::CheeseShop(const CheeseShop& source) {
-    for(size_t i = 0; i < m_size; i++) {
-        m_pCheeses[i] = nullptr;
-    }
     *this = source;
 }
 CheeseShop::CheeseShop(CheeseShop&& source) {
-    for(size_t i = 0; i < m_size; i++) {
-        m_pCheeses[i] = nullptr;
-    }
     *this = std::move(source);
 }
 CheeseShop& CheeseShop::operator=(const CheeseShop& source) {
@@ -67,6 +63,7 @@ CheeseShop& CheeseShop::operator=(CheeseShop&& source) {
         m_size = source.m_size;
         m_pCheeses = source.m_pCheeses;
         source.m_name = "";
+        source.m_size = 0;
         source.m_pCheeses = nullptr;
     }
     return *this;

@@ -12,7 +12,7 @@ SpellChecker::SpellChecker(const char *filename) {
         {
             string buffer;
                 getline(file, buffer);
-            int j = 0;
+            size_t j = 0;
             while(buffer[j] != ' ') {
                 m_badWords[i] += buffer[j];
                 j++;

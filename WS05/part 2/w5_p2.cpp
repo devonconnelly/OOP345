@@ -1,3 +1,8 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 13 2023
+
 // Workshop 5 - Functions and Error Handling
 // 2020/02 - Cornel
 // 2021/01/19 - Chris

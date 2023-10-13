@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Oct. 13 2023
 #ifndef SDDS_SPELLCHECKER_H
 #define SDDS_SPELLCHECKER_H
 #define SIZE 6

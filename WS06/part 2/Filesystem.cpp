@@ -17,9 +17,9 @@ Filesystem::Filesystem(const std::string filename, const std::string root) {
             line.erase(line.find_last_not_of(" ") + 1);
             if(!line.empty()){
                 if (line.find('|') != std::string::npos) {
-                    size_t pipePos = line.find('|');
-                    std::string file_path = line.substr(0, pipePos);
-                    std::string content = line.substr(pipePos + 1);
+                    size_t pipe = line.find('|');
+                    std::string file_path = line.substr(0, pipe);
+                    std::string content = line.substr(pipe + 1);
                     file_path = file_path.substr(file_path.find_first_not_of(" "), file_path.find_last_not_of(" ") + 1);
                     content = content.substr(content.find_first_not_of(" "), content.find_last_not_of(" ") + 1);
                     std::vector<std::string> components;
@@ -52,7 +52,6 @@ Filesystem::Filesystem(const std::string filename, const std::string root) {
                         components.push_back(line.substr(start, end - start + 1));
                         start = end + 1;
                     }
-                    components.push_back(line.substr(start));
                     Directory* dir = nullptr;
                     m_current = m_root;
                     for (const std::string& component : components) {

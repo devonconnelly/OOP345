@@ -6,11 +6,10 @@
 using namespace std;
 namespace sdds {
 Filesystem::Filesystem(const std::string filename, const std::string root) {
-    m_root = new Directory(root);
-    // this might be wrong
     fstream file;
     file.open(filename);
     if(file.is_open()) {
+        m_root = new Directory(root);
         std::string line;
         while (std::getline(file, line)) {
             line.erase(0, line.find_first_not_of(" "));
@@ -72,6 +71,7 @@ Filesystem::Filesystem(const std::string filename, const std::string root) {
     }
     else {
         throw std::runtime_error("file cannot be opened");
+       
     }
     
 }
@@ -83,10 +83,8 @@ Filesystem::Filesystem(sdds::Filesystem &&source) {
 sdds::Filesystem& Filesystem::operator=(sdds::Filesystem &&source) {
     if(this != &source) {
         delete m_root;
-        delete m_current;
         m_root = source.m_root;
         m_current = source.m_current;
-        delete source.m_root;
         source.m_root = nullptr;
         source.m_current = nullptr;
     }
@@ -119,6 +117,7 @@ sdds::Directory *Filesystem::get_current_directory() const {
 
 Filesystem::~Filesystem() {
     delete m_root;
+    m_root = nullptr;
 }
 }
 

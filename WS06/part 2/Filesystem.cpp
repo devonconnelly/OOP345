@@ -86,6 +86,7 @@ sdds::Filesystem& Filesystem::operator=(sdds::Filesystem &&source) {
         delete m_current;
         m_root = source.m_root;
         m_current = source.m_current;
+        delete source.m_root;
         source.m_root = nullptr;
         source.m_current = nullptr;
     }

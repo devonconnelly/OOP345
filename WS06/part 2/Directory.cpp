@@ -114,8 +114,7 @@ void Directory::display(std::ostream & os, const std::vector<FormatFlags> & flag
             else {
                 os << " " << right << setw(2) << "  " << " | ";
             }
-            
-            os << right << setw(10) << item->size() << " bytes" << " |" << endl;
+            os << right << setw(4) << item->size() << " bytes" << " | " << endl;
         }else{
             os << endl;
         }

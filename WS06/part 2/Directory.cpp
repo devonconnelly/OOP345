@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Nov. 03 2023
 #include <vector>
 #include <iomanip>
 #include <iostream>

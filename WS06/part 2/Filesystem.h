@@ -1,3 +1,7 @@
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Nov. 03 2023
 #ifndef SDDS_FILESYSTEM_H
 #define SDDS_FILESYSTEM_H
 #include "Directory.h"

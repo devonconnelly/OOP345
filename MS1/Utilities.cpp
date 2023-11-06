@@ -1,3 +1,10 @@
+// Name: Devon Connelly
+// Seneca Student ID: 105322218
+// Seneca email: dconnelly@myseneca.ca
+// Date of completion: Nov. 6 2023
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include <string>
 #include "Utilities.h"
 namespace sdds {

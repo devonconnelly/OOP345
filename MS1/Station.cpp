@@ -1,3 +1,10 @@
+// Name: Devon Connelly
+// Seneca Student ID: 105322218
+// Seneca email: dconnelly@myseneca.ca
+// Date of completion: Nov. 6 2023
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -45,9 +52,9 @@ void Station::updateQuantity() {
 }
 
 void Station::display(std::ostream &os, bool full) const {
-    os << setw(3) << setfill('0') << m_id << setfill(' ') << " | " << setw(int(m_widthField)) << left << m_name << " | " << setw(6) << setfill('0') << right << m_serialNum << setfill(' ') << " |";
+    os << setw(3) << setfill('0') << m_id << setfill(' ') << " | " << setw(int(m_widthField)) << left << m_name << " | " << setw(6) << setfill('0') << right << m_serialNum << setfill(' ') << " | ";
     if(full) {
-        os << " " << setw(4) << m_numStock << " | " << m_description;
+        os << setw(4) << m_numStock << " | " << m_description;
     }
     os << endl;
 }

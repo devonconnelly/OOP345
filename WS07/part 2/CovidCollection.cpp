@@ -58,7 +58,7 @@ void CovidCollection::display(std::ostream &out, const std::string &country) con
 }
 
 void CovidCollection::sort(const std::string &field) {
-    std::sort(m_collection.begin(), m_collection.end(), [&](const Covid& a, const Covid& b) {
+    std::sort(m_collection.begin(), m_collection.end(), [=](const Covid& a, const Covid& b) {
         if (field == "country") {
             if (a.m_country != b.m_country) {
                 return a.m_country < b.m_country;
@@ -85,9 +85,8 @@ void CovidCollection::sort(const std::string &field) {
 }
 
 bool CovidCollection::inCollection(const std::string &variant, const std::string &country, unsigned int deaths) const {
-    bool result = false;
-    for_each(m_collection.begin(), m_collection.end(), [&](const Covid &item){if(country == item.m_country && item.m_variant == variant && item.m_deaths > deaths){result = true;}});
-    return result;
+    auto it = std::find_if(m_collection.begin(), m_collection.end(), [=](const Covid item) {return (country == item.m_country && variant == item.m_variant && item.m_deaths > deaths);});
+    return it != m_collection.end();
 }
 
 std::list<Covid> CovidCollection::getListForDeaths(unsigned int deaths) const { 
@@ -103,7 +102,7 @@ void CovidCollection::updateStatus() {
 
 std::ostream& operator<<(std::ostream& out, const Covid& theCovid) {
     out << "| " << setw(21) << left << theCovid.m_country << " | " << setw(15) << theCovid.m_city << " | " << setw(20) << theCovid.m_variant << " | ";
-    if( theCovid.m_year < 0 ) {
+    if(theCovid.m_year < 0) {
         out << "      ";
     }
     else {

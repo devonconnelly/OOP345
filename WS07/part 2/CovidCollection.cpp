@@ -37,7 +37,7 @@ CovidCollection::CovidCollection(const std::string filename) {
     }
 }
 
-void CovidCollection::display(std::ostream &out, const std::string &country) const {
+void CovidCollection::display(std::ostream& out, const std::string& country) const {
     size_t totalCases = 0, totalDeaths = 0;
     if(country == "ALL") {
         for_each(m_collection.begin(), m_collection.end(), [&](Covid item){out << item << endl; totalCases+= item.m_cases; totalDeaths += item.m_deaths;});
@@ -57,7 +57,7 @@ void CovidCollection::display(std::ostream &out, const std::string &country) con
     }
 }
 
-void CovidCollection::sort(const std::string &field) {
+void CovidCollection::sort(const std::string& field) {
     std::sort(m_collection.begin(), m_collection.end(), [=](const Covid& a, const Covid& b) {
         if (field == "country") {
             if (a.m_country != b.m_country) {
@@ -84,14 +84,14 @@ void CovidCollection::sort(const std::string &field) {
     });
 }
 
-bool CovidCollection::inCollection(const std::string &variant, const std::string &country, unsigned int deaths) const {
+bool CovidCollection::inCollection(const std::string& variant, const std::string& country, unsigned int deaths) const {
     auto it = std::find_if(m_collection.begin(), m_collection.end(), [=](const Covid item) {return (country == item.m_country && variant == item.m_variant && item.m_deaths > deaths);});
     return it != m_collection.end();
 }
 
 std::list<Covid> CovidCollection::getListForDeaths(unsigned int deaths) const { 
     std::list<Covid> result;
-    for_each(m_collection.begin(), m_collection.end(), [&](const Covid &item){if(item.m_deaths >= deaths){result.push_back(item);}});
+    std::copy_if(m_collection.begin(), m_collection.end(), std::back_inserter(result), [&](const Covid &item) { return item.m_deaths >= deaths;});
     return result;
 }
 

@@ -1,9 +1,16 @@
+// Name: Devon Connelly
+// Seneca Student ID: 105322218
+// Seneca email: dconnelly@myseneca.ca
+// Date of completion: Nov. 15 2023
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #ifndef SDDS_CUSTOMERORDER_H
 #define SDDS_CUSTOMERORDER_H
 #include "Station.h"
 namespace sdds{
 struct Item {
-    std::string m_itemName{};
+    std::string m_itemName;
     size_t m_serialNumber{0};
     bool m_isFilled{false};
 

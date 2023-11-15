@@ -1,3 +1,10 @@
+// Name: Devon Connelly
+// Seneca Student ID: 105322218
+// Seneca email: dconnelly@myseneca.ca
+// Date of completion: Nov. 15 2023
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include <iostream>
 #include <iomanip>
 #include "Utilities.h"
@@ -5,7 +12,7 @@
 using namespace std;
 namespace sdds {
 
-size_t CustomerOrder::m_widthField = 1;
+size_t CustomerOrder::m_widthField = 0;
 
 CustomerOrder::CustomerOrder() {
     m_name = "";
@@ -19,7 +26,6 @@ CustomerOrder::CustomerOrder(const std::string& str) : CustomerOrder() {
     size_t nextPos = 0;
     string buffer{};
     bool more = false;
-    
    
     try{
         m_name = utilities.extractToken(str, nextPos, more);
@@ -47,7 +53,7 @@ CustomerOrder::CustomerOrder(const CustomerOrder&) {
     throw "Copy construction is not allowed";
 }
 
-CustomerOrder::CustomerOrder(CustomerOrder&& source) noexcept {
+CustomerOrder::CustomerOrder(CustomerOrder&& source) noexcept : CustomerOrder() {
     *this = std::move(source);
 }
 
@@ -88,12 +94,15 @@ bool CustomerOrder::isOrderFilled() const {
 }
 
 bool CustomerOrder::isItemFilled(const std::string& itemName) const {
-    bool result = false;
+    bool result = true;
     for(size_t i = 0; i < m_cntItem; i++) {
         if(m_lstItem[i]->m_itemName == itemName) {
-            if(m_lstItem[i]->m_isFilled) {
-                result = true;
+            if(!m_lstItem[i]->m_isFilled) {
+                result = false;
                 i = m_cntItem;
+            }
+            else {
+                result = true;
             }
         }
     }

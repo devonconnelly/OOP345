@@ -5,7 +5,7 @@
 using namespace std;
 namespace sdds {
 
-size_t CustomerOrder::m_widthField = 0;
+size_t CustomerOrder::m_widthField = 1;
 
 CustomerOrder::CustomerOrder() {
     m_name = "";
@@ -14,15 +14,12 @@ CustomerOrder::CustomerOrder() {
     m_lstItem = nullptr;
 }
 
-CustomerOrder::CustomerOrder(const std::string& str) {
+CustomerOrder::CustomerOrder(const std::string& str) : CustomerOrder() {
     Utilities utilities;
     size_t nextPos = 0;
     string buffer{};
     bool more = false;
-    m_name = "";
-    m_product = "";
-    m_cntItem = 0;
-    m_lstItem = nullptr;
+    
    
     try{
         m_name = utilities.extractToken(str, nextPos, more);

@@ -26,7 +26,7 @@ std::string Utilities::extractToken(const std::string &str, size_t &next_pos, bo
             throw "aboba";
         }
         newStr = str.substr(next_pos, str.substr(next_pos).find_first_of(m_delimiter));
-        newStr = newStr.substr(newStr.find_first_not_of(" "), newStr.find_last_not_of(" ") + 1);
+        newStr = newStr.substr(newStr.find_first_not_of(" "), newStr.find_last_not_of(" ") - newStr.find_first_not_of(" ") + 1);
         next_pos = str.find(m_delimiter, next_pos) + 1;
         more = true;
         if(m_widthField < newStr.length()) {

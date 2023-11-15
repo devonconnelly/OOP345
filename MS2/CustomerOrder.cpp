@@ -61,10 +61,11 @@ CustomerOrder& CustomerOrder::operator=(CustomerOrder&& source) noexcept{
         m_product = source.m_product;
         m_lstItem = source.m_lstItem;
          
+        source.m_product = "";
+        source.m_name = "";
         source.m_cntItem = 0;
         source.m_lstItem = nullptr;
     }
-    
     return *this;
 }
 
@@ -107,11 +108,12 @@ void CustomerOrder::fillItem(Station& station, std::ostream& os) {
                 station.updateQuantity();
                 m_lstItem[i]->m_isFilled = true;
                 m_lstItem[i]->m_serialNumber = station.getNextSerialNumber();
-                os << "    Filled " << m_name << ", " << m_product << "[" << m_lstItem[i]->m_itemName << "]" << endl;
+                os << "    Filled " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << endl;
             }
             else {
                 os << "    Unable to fill " << m_name << ", " << m_product << "[" << m_lstItem[i]->m_itemName << "]" << endl;
             }
+            i = m_cntItem;
         }
     }
 }

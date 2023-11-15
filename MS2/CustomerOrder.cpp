@@ -27,7 +27,7 @@ CustomerOrder::CustomerOrder(const std::string& str) : CustomerOrder() {
             buffer = utilities.extractToken(str, nextPos, more);
             Item** tempItem = new Item*[m_cntItem + 1];
             for(size_t i = 0; i < m_cntItem; i++) {
-                tempItem[i] = new Item(*m_lstItem[i]);
+                tempItem[i] = m_lstItem[i];
                 delete m_lstItem[i];
             }
             delete[] m_lstItem;
@@ -61,8 +61,6 @@ CustomerOrder& CustomerOrder::operator=(CustomerOrder&& source) noexcept{
         m_product = source.m_product;
         m_lstItem = source.m_lstItem;
          
-        source.m_product = "";
-        source.m_name = "";
         source.m_cntItem = 0;
         source.m_lstItem = nullptr;
     }

@@ -3,7 +3,7 @@
 #include "Station.h"
 namespace sdds{
 struct Item {
-    std::string m_itemName;
+    std::string m_itemName{};
     size_t m_serialNumber{0};
     bool m_isFilled{false};
 

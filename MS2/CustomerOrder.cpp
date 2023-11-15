@@ -14,11 +14,15 @@ CustomerOrder::CustomerOrder() {
     m_lstItem = nullptr;
 }
 
-CustomerOrder::CustomerOrder(const std::string& str) : CustomerOrder() {
+CustomerOrder::CustomerOrder(const std::string& str) {
     Utilities utilities;
     size_t nextPos = 0;
     string buffer{};
     bool more = false;
+    m_name = "";
+    m_product = "";
+    m_cntItem = 0;
+    m_lstItem = nullptr;
    
     try{
         m_name = utilities.extractToken(str, nextPos, more);

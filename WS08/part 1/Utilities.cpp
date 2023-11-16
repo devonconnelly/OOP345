@@ -27,12 +27,13 @@ namespace sdds {
                 }
             }
             if(!isBanned) {
+                std::string msg = "*** Invalid Address ***";
                 Profile* prof = new Profile(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age);
                 try {
                     prof->validateAddress();
                     result += *prof;
                 } catch(...) {
-                    
+                    throw msg;
                 }
                 delete prof;
             }

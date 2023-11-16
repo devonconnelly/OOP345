@@ -33,6 +33,7 @@ namespace sdds {
                     prof->validateAddress();
                     result += *prof;
                 } catch(...) {
+                    delete prof;
                     throw msg;
                 }
                 delete prof;

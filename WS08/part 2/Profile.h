@@ -1,5 +1,10 @@
 // Workshop 8 - Smart Pointers
 
+// Devon Connelly
+// 105322218
+// dconnelly@myseneca.ca
+// Nov. 16 2023
+
 #ifndef SDDS_PROFILE_H
 #define SDDS_PROFILE_H
 
@@ -87,8 +92,11 @@ namespace sdds {
 				std::cout << "    ~D [" << m_id << "][" << this->m_name << "]" << std::endl;
 		}
 
-		// TODO: add a function here to validate the address
-
+        void validateAddress() {
+            if (!isalpha(m_address.postal_code[0]) || !isdigit(m_address.postal_code[1]) || !isalpha(m_address.postal_code[2]) || m_address.postal_code[3] != ' ' || !isdigit(m_address.postal_code[4]) || !isalpha(m_address.postal_code[5]) || !isdigit(m_address.postal_code[6]) || m_address.number < 0) {
+                    throw "aboba";
+                }
+        }
 
 
 

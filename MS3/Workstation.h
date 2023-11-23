@@ -13,7 +13,7 @@
 namespace sdds {
 class Workstation : public Station {
     std::deque<CustomerOrder> m_orders;
-    Workstation* m_pNextStation;
+    Workstation* m_pNextStation = nullptr;
 public:
     Workstation(const std::string&);
     void fill(std::ostream& os);

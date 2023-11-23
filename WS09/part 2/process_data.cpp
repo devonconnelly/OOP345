@@ -108,7 +108,7 @@ namespace sdds
         std::vector<std::thread> avgThreads;
         for (int i = 0; i < num_threads; ++i) {
             auto bound = std::bind(computeAvgFactor, data + p_indices[i], p_indices[i + 1] - p_indices[i], total_items, std::ref(averages[i]));
-            avgThreads.push_back(std::thread (bound));
+            avgThreads.push_back(std::thread(bound));
         }
         for (auto& thread : avgThreads) {
             thread.join();
@@ -118,9 +118,8 @@ namespace sdds
         }
         std::vector<std::thread> varThreads;
         for (int i = 0; i < num_threads; ++i) {
-            
             auto bound = std::bind(computeVarFactor, data + p_indices[i], p_indices[i + 1] - p_indices[i], total_items, avg, std::ref(variances[i]));
-            varThreads.push_back(std::thread (bound));
+            varThreads.push_back(std::thread(bound));
         }
         for (auto& thread : varThreads) {
             thread.join();
@@ -139,7 +138,7 @@ namespace sdds
         else {
             throw "Cannot open file";
         }
-        return avg;
+        return 0;
         
     }
 

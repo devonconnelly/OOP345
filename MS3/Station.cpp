@@ -48,7 +48,9 @@ size_t Station::getQuantity() const {
 }
 
 void Station::updateQuantity() {
-    if(m_numStock > 0) {m_numStock--;}
+    if(m_numStock > 0) {
+        m_numStock--;
+    }
 }
 
 void Station::display(std::ostream &os, bool full) const {
